@@ -311,7 +311,7 @@ if st.button("✨ Tampilkan Hasil"):
         <source src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" type="audio/mpeg">
     </audio>
     """,
-    height=0,
+    height=4,
 )
      # Efek loading
     with st.spinner("Menghitung massa jenis gas..."):
