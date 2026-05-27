@@ -305,64 +305,65 @@ st.latex(
 
 if st.button("✨ Tampilkan Hasil"):
 
-    progress = st.progress(0)
+   # ====================================
+# HASIL + KESIMPULAN
+# ====================================
 
-    for i in range(100):
+st.markdown(
+    f"""
+    <div style="
+    background:linear-gradient(to right,#22c55e,#16a34a);
+    padding:30px;
+    border-radius:20px;
+    color:white;
+    box-shadow:0px 0px 25px rgba(0,255,0,0.5);
+    animation: fadein 1s;
+    ">
 
-        time.sleep(0.01)
+    <h1 style="
+    text-align:center;
+    font-size:40px;
+    ">
+    Massa Jenis Gas
+    </h1>
 
-        progress.progress(i + 1)
+    <hr>
 
-    st.success("Perhitungan selesai!")
+    <h2 style="
+    text-align:center;
+    font-size:35px;
+    ">
+    {hasil:.2f} g/L
+    </h2>
+
+    <br>
+
+    <h3>📌 Kesimpulan</h3>
+
+    <p style="font-size:20px; line-height:1.8;">
+
+    Dengan:
+    <br>
+    • tekanan = {P} atm
+    <br>
+    • suhu = {T} K
+    <br>
+    • Bobot Molekul = {M} g/mol
+    <br><br>
+
+    maka massa jenis gas adalah:
+
+    <b>{hasil:.2f} g/L</b>
+
+    </p>
+
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     # ====================================
-    # HASIL
-    # ====================================
-
-    st.markdown(
-        f"""
-        <div style="
-        background:linear-gradient(to right,#22c55e,#16a34a);
-        padding:25px;
-        border-radius:18px;
-        text-align:center;
-        font-size:34px;
-        color:white;
-        font-weight:bold;
-        box-shadow:0px 0px 25px rgba(0,255,0,0.5);
-        ">
-
-        Massa Jenis Gas
-
-        <br><br>
-
-        {hasil:.2f} g/L
-
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.balloons()
-
-    # ====================================
-    # KESIMPULAN
-    # ====================================
-
-    st.subheader("📌 Kesimpulan")
-
-    st.write(f"""
-
-Dengan:
-- tekanan = {P} atm
-- suhu = {T} K
-- Bobot Molekul = {M} g/mol
-
-maka massa jenis gas adalah:
-
-# {hasil:.2f} g/L
-
-""")
+    # 
 
 # ====================================
 # TEST
