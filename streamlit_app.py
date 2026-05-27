@@ -354,9 +354,4 @@ maka massa jenis gas adalah:
 # {hasil:.2f} g/L
 
 """)
-
-# ====================================
-# TEST
-# ====================================
-
 assert hasil > 0, "Hasil tidak boleh negatif"
