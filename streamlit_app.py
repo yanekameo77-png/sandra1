@@ -303,7 +303,7 @@ st.latex(
 # TOMBOL HASIL + kesimpulan
 # ====================================
 
-if st.button("✨ Tampilkan Hasil"):
+st.button("✨ Tampilkan Hasil"):
 st.markdown(
     f"""
     <div style="
