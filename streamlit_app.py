@@ -308,7 +308,7 @@ if st.button("✨ Tampilkan Hasil"):
     components.html(
     """
     <audio autoplay>
-        <source src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" type="audio/mpeg">
     </audio>
     """,
     height=0,
