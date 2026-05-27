@@ -307,7 +307,7 @@ if st.button("✨ Tampilkan Hasil"):
     st.markdown(
     f"""
     <div style="
-    background:linear-gradient(to right,#89CFF0,#A7E6FF);
+    background:linear-gradient(to right,#BFEFFF,#87CEFA);
     padding:30px;
     border-radius:20px;
     color:black;
