@@ -310,7 +310,7 @@ if st.button("✨ Tampilkan Hasil"):
     background:linear-gradient(to right,#22c55e,#16a34a);
     padding:30px;
     border-radius:20px;
-    color:white;
+    color:blue;
     box-shadow:0px 0px 25px rgba(0,255,0,0.5);
     animation: fadein 1s;
     ">
