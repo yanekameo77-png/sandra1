@@ -21,7 +21,7 @@ st.set_page_config(
 # JUDUL
 # ====================================
 
-st.title("⚛️ Simulasi Gas Ideal Interaktif")
+st.title("Simulasi Gas Ideal Interaktif")
 
 st.write("""
 Aplikasi ini menghitung massa jenis gas menggunakan persamaan gas ideal.
@@ -269,7 +269,7 @@ components.html(
 # PERSAMAAN GAS IDEAL
 # ====================================
 
-st.subheader("📘 Persamaan Gas Ideal")
+st.subheader("Persamaan Gas Ideal")
 
 st.latex(r"PV = nRT")
 
@@ -289,7 +289,7 @@ hasil = (P * M) / (R * T)
 # LANGKAH PERHITUNGAN
 # ====================================
 
-st.subheader("🧮 Langkah Perhitungan")
+st.subheader("Langkah Perhitungan")
 
 st.latex(
     rf"\rho = \frac{{({P})({M})}}{{({R})({T})}}"
