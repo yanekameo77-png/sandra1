@@ -327,9 +327,6 @@ if st.button("✨ Tampilkan Hasil"):
     st.success("Perhitungan berhasil!")
      # balon
     st.balloons()
-
-    # Efek suara visual
-    st.star()
     
     st.markdown(
     f"""
