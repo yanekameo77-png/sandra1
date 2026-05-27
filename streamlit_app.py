@@ -304,7 +304,7 @@ st.latex(
 # ====================================
 
 if st.button("✨ Tampilkan Hasil"):
-st.markdown(
+    st.markdown(
     f"""
     <div style="
     background:linear-gradient(to right,#22c55e,#16a34a);
