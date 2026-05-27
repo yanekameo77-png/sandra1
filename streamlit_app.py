@@ -316,7 +316,7 @@ if st.button("✨ Tampilkan Hasil"):
             progress.progress(i + 1)
      # Efek sukses
     st.success("Perhitungan berhasil!")
-     # Balon
+     # bunga
     st.flower()
 
     # Efek suara visual
