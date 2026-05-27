@@ -36,7 +36,7 @@ Pengguna dapat mengubah:
 # INPUT PENGGUNA
 # ====================================
 
-st.subheader("⚙️ Input Variabel")
+st.subheader("Input Variabel")
 
 P = st.slider(
     "Tekanan Gas (atm)",
