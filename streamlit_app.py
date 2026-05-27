@@ -304,11 +304,6 @@ st.latex(
 # ====================================
 
 if st.button("✨ Tampilkan Hasil"):
-
-   # ====================================
-# HASIL + KESIMPULAN
-# ====================================
-
 st.markdown(
     f"""
     <div style="
@@ -338,7 +333,7 @@ st.markdown(
 
     <br>
 
-    <h3>📌 Kesimpulan</h3>
+    <h3> Kesimpulan</h3>
 
     <p style="font-size:20px; line-height:1.8;">
 
