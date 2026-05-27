@@ -304,6 +304,15 @@ st.latex(
 # ====================================
 
 if st.button("✨ Tampilkan Hasil"):
+    #Sound effect
+    components.html(
+    """
+    <audio autoplay>
+        <source src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3" type="audio/mpeg">
+    </audio>
+    """,
+    height=0,
+)
      # Efek loading
     with st.spinner("Menghitung massa jenis gas..."):
 
