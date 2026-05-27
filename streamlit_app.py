@@ -29,7 +29,7 @@ Aplikasi ini menghitung massa jenis gas menggunakan persamaan gas ideal.
 Pengguna dapat mengubah:
 - tekanan (atm)
 - suhu (K)
-- Bobot Molekul gas
+- Bobot Molekul gas (g/mol)
 """)
 
 # ====================================
