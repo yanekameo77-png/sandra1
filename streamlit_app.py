@@ -307,11 +307,11 @@ if st.button("✨ Tampilkan Hasil"):
     st.markdown(
     f"""
     <div style="
-    background:linear-gradient(to right,#22c55e,#16a34a);
+    background:linear-gradient(to right,#89CFF0,#A7E6FF);
     padding:30px;
     border-radius:20px;
-    color:blue;
-    box-shadow:0px 0px 25px rgba(0,255,0,0.5);
+    color:black;
+    box-shadow:0px 0px 25px rgba(137,207,240,0.6);
     animation: fadein 1s;
     ">
 
