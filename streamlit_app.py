@@ -21,7 +21,7 @@ st.set_page_config(
 # JUDUL
 # ====================================
 
-st.title("⚛️ Simulasi Gas Ideal Interaktif")
+st.title("Simulasi Gas Ideal Interaktif")
 
 st.write("""
 Aplikasi ini menghitung massa jenis gas menggunakan persamaan gas ideal.
@@ -29,14 +29,14 @@ Aplikasi ini menghitung massa jenis gas menggunakan persamaan gas ideal.
 Pengguna dapat mengubah:
 - tekanan (atm)
 - suhu (K)
-- massa molar gas
+- Bobot Molekul gas
 """)
 
 # ====================================
 # INPUT PENGGUNA
 # ====================================
 
-st.subheader("⚙️ Input Variabel")
+st.subheader("Input Variabel")
 
 P = st.slider(
     "Tekanan Gas (atm)",
@@ -54,7 +54,7 @@ T = st.slider(
 )
 
 M = st.number_input(
-    "Massa Molar Gas (g/mol)",
+    "Bobot Moleku Gas (g/mol)",
     value=32.0
 )
 
@@ -269,7 +269,7 @@ components.html(
 # PERSAMAAN GAS IDEAL
 # ====================================
 
-st.subheader("📘 Persamaan Gas Ideal")
+st.subheader("Persamaan Gas Ideal")
 
 st.latex(r"PV = nRT")
 
@@ -289,7 +289,7 @@ hasil = (P * M) / (R * T)
 # LANGKAH PERHITUNGAN
 # ====================================
 
-st.subheader("🧮 Langkah Perhitungan")
+st.subheader("Langkah Perhitungan")
 
 st.latex(
     rf"\rho = \frac{{({P})({M})}}{{({R})({T})}}"
@@ -303,7 +303,7 @@ st.latex(
 # TOMBOL HASIL
 # ====================================
 
-if st.button("🚀 Tampilkan Hasil"):
+if st.button("Tampilkan Hasil✨"):
 
     progress = st.progress(0)
 
@@ -345,7 +345,7 @@ if st.button("🚀 Tampilkan Hasil"):
 # KESIMPULAN
 # ====================================
 
-st.subheader("📌 Kesimpulan")
+st.subheader("Kesimpulan")
 
 st.write(f"""
 
