@@ -340,11 +340,6 @@ if st.button("Tampilkan Hasil✨"):
     )
 
     st.balloons()
-
-# ====================================
-# KESIMPULAN
-# ====================================
-
 st.subheader("Kesimpulan")
 
 st.write(f"""
