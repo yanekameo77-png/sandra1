@@ -1,61 +1,139 @@
 try:
     import streamlit as st
+    import streamlit.components.v1 as components
 except ModuleNotFoundError:
     raise ModuleNotFoundError(
-        "Streamlit belum terinstall. Jalankan perintah: pip install streamlit"
+        "Streamlit belum terinstall. Jalankan: pip install streamlit"
     )
 
 import time
 
-# =========================
+# ====================================
 # KONFIGURASI HALAMAN
-# =========================
+# ====================================
+
 st.set_page_config(
-    page_title="Animasi Gas Ideal",
+    page_title="Simulasi Gas Ideal Interaktif",
     layout="centered"
 )
 
-# =========================
-# SLIDER SUHU
-# =========================
+# ====================================
+# JUDUL
+# ====================================
 
-suhu_animasi = st.slider(
-    "🌡️ Atur Suhu Gas (K)",
-    100,
-    1000,
-    300
+st.title("⚛️ Simulasi Gas Ideal Interaktif")
+
+st.write("""
+Aplikasi ini menghitung massa jenis gas menggunakan persamaan gas ideal.
+
+Pengguna dapat mengubah:
+- tekanan (atm)
+- suhu (K)
+- massa molar gas
+""")
+
+# ====================================
+# INPUT PENGGUNA
+# ====================================
+
+st.subheader("⚙️ Input Variabel")
+
+P = st.slider(
+    "Tekanan Gas (atm)",
+    0.1,
+    10.0,
+    2.0,
+    0.1
 )
 
-# Semakin tinggi suhu → semakin cepat
-kecepatan = 12 - (suhu_animasi / 100)
+T = st.slider(
+    "Suhu Gas (K)",
+    100,
+    1000,
+    298
+)
 
-if kecepatan < 1:
-    kecepatan = 1
+M = st.number_input(
+    "Massa Molar Gas (g/mol)",
+    value=32.0
+)
 
-# =========================
-# CSS DINAMIS
-# =========================
+R = 0.082
 
-st.markdown(f"""
+# ====================================
+# KECEPATAN ANIMASI
+# ====================================
+
+kecepatan = max(1, 12 - (T / 100))
+
+# ====================================
+# PENJELASAN
+# ====================================
+
+st.info(
+    f"""
+Tekanan = {P} atm
+
+Suhu = {T} K
+
+Massa molar = {M} g/mol
+
+Semakin tinggi suhu, partikel bergerak semakin cepat.
+"""
+)
+
+# ====================================
+# HTML + CSS ANIMASI
+# ====================================
+
+html_code = f"""
+<!DOCTYPE html>
+<html>
+
+<head>
+
 <style>
 
+body {{
+    margin:0;
+    overflow:hidden;
+    background-color:transparent;
+}}
+
 .kotak {{
-    width: 100%;
-    height: 350px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    background: radial-gradient(circle, #1e3a8a, #020617);
-    border: 2px solid cyan;
+    width:100%;
+    height:420px;
+
+    position:relative;
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:
+    radial-gradient(circle,
+    #1e3a8a,
+    #020617);
+
+    border:2px solid cyan;
+
+    box-shadow:
+    0px 0px 25px rgba(0,255,255,0.4);
 }}
 
 .bola {{
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    position: absolute;
-    background: cyan;
-    box-shadow: 0 0 15px cyan;
+
+    width:18px;
+    height:18px;
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:cyan;
+
+    box-shadow:
+    0 0 15px cyan,
+    0 0 30px cyan;
 }}
 
 .b1 {{
@@ -75,134 +153,215 @@ st.markdown(f"""
 }}
 
 @keyframes gerak1 {{
-    from {{ transform: translate(0,0); }}
-    to {{ transform: translate(300px,220px); }}
+
+    from {{
+        transform: translate(0px,0px);
+    }}
+
+    to {{
+        transform: translate(320px,240px);
+    }}
 }}
 
 @keyframes gerak2 {{
-    from {{ transform: translate(0,200px); }}
-    to {{ transform: translate(280px,-50px); }}
+
+    from {{
+        transform: translate(0px,200px);
+    }}
+
+    to {{
+        transform: translate(280px,-60px);
+    }}
 }}
 
 @keyframes gerak3 {{
-    from {{ transform: translate(150px,0); }}
-    to {{ transform: translate(-100px,230px); }}
+
+    from {{
+        transform: translate(150px,0px);
+    }}
+
+    to {{
+        transform: translate(-120px,250px);
+    }}
 }}
 
 @keyframes gerak4 {{
-    0% {{ transform: translate(0,0); }}
-    25% {{ transform: translate(200px,50px); }}
-    50% {{ transform: translate(100px,200px); }}
-    75% {{ transform: translate(250px,120px); }}
-    100% {{ transform: translate(50px,250px); }}
+
+    0% {{
+        transform: translate(0px,0px);
+    }}
+
+    25% {{
+        transform: translate(220px,50px);
+    }}
+
+    50% {{
+        transform: translate(100px,220px);
+    }}
+
+    75% {{
+        transform: translate(260px,130px);
+    }}
+
+    100% {{
+        transform: translate(50px,260px);
+    }}
 }}
 
 </style>
-""", unsafe_allow_html=True)
 
-# =========================
-# ANIMASI PARTIKEL
-# =========================
+</head>
 
-st.subheader("⚛️ Simulasi Partikel Gas Ideal")
+<body>
 
-html_partikel = ""
+<div class="kotak">
 
-kelas = ["b1", "b2", "b3", "b4"]
-
-for i in range(20):
-
-    left = (i * 30) % 500
-    top = (i * 20) % 250
-
-    kelas_animasi = kelas[i % 4]
-
-    html_partikel += f"""
-    <div class='bola {kelas_animasi}'
-    style='left:{left}px; top:{top}px;'>
+    <div class="bola b1"
+    style="left:20px; top:20px;">
     </div>
-    """
 
-st.markdown(
-    f"""
-    <div class='kotak'>
-        {html_partikel}
+    <div class="bola b2"
+    style="left:80px; top:100px;">
     </div>
-    """,
-    unsafe_allow_html=True
+
+    <div class="bola b3"
+    style="left:180px; top:150px;">
+    </div>
+
+    <div class="bola b4"
+    style="left:300px; top:80px;">
+    </div>
+
+    <div class="bola b1"
+    style="left:400px; top:200px;">
+    </div>
+
+    <div class="bola b2"
+    style="left:520px; top:140px;">
+    </div>
+
+    <div class="bola b3"
+    style="left:620px; top:240px;">
+    </div>
+
+    <div class="bola b4"
+    style="left:700px; top:100px;">
+    </div>
+
+</div>
+
+</body>
+</html>
+"""
+
+# ====================================
+# TAMPILKAN ANIMASI
+# ====================================
+
+st.subheader("🌌 Simulasi Pergerakan Partikel")
+
+components.html(
+    html_code,
+    height=430
 )
-# =========================
-# LANGKAH PENYELESAIAN
-# =========================
-st.subheader("Langkah Penyelesaian")
 
-st.write("### 1. Mengubah tekanan dari Torr ke atm")
+# ====================================
+# PERSAMAAN GAS IDEAL
+# ====================================
 
-st.latex(r"P = \frac{1520}{760} = 2\ atm")
+st.subheader("📘 Persamaan Gas Ideal")
 
-st.write("### 2. Mengubah suhu ke Kelvin")
+st.latex(r"PV = nRT")
 
-st.latex(r"T = 25 + 273 = 298\ K")
-
-st.write("### 3. Menentukan massa molar oksigen")
-
-st.latex(r"M_{O_2} = 2 \times 16 = 32\ g/mol")
-
-st.write("### 4. Memasukkan nilai ke rumus massa jenis")
+st.write(
+    "Untuk mencari massa jenis gas:"
+)
 
 st.latex(r"\rho = \frac{PM}{RT}")
 
-st.latex(r"\rho = \frac{(2)(32)}{(0.082)(298)}")
-
-# =========================
+# ====================================
 # PERHITUNGAN OTOMATIS
-# =========================
-P = 2
-M = 32
-R = 0.082
-T = 298
+# ====================================
 
 hasil = (P * M) / (R * T)
 
-# =========================
+# ====================================
+# LANGKAH PERHITUNGAN
+# ====================================
+
+st.subheader("🧮 Langkah Perhitungan")
+
+st.latex(
+    rf"\rho = \frac{{({P})({M})}}{{({R})({T})}}"
+)
+
+st.latex(
+    rf"\rho = {hasil:.2f}\ g/L"
+)
+
+# ====================================
 # TOMBOL HASIL
-# =========================
-if st.button("Tampilkan Hasil Perhitungan"):
+# ====================================
+
+if st.button("🚀 Tampilkan Hasil"):
 
     progress = st.progress(0)
 
     for i in range(100):
+
         time.sleep(0.01)
+
         progress.progress(i + 1)
 
     st.success("Perhitungan selesai!")
 
     st.markdown(
-        f'<div class="hasil">Massa Jenis Gas O₂ = {hasil:.2f} g/L</div>',
+        f"""
+        <div style="
+        background:linear-gradient(to right,#22c55e,#16a34a);
+        padding:25px;
+        border-radius:18px;
+        text-align:center;
+        font-size:34px;
+        color:white;
+        font-weight:bold;
+        box-shadow:0px 0px 25px rgba(0,255,0,0.5);
+        ">
+
+        Massa Jenis Gas
+
+        <br><br>
+
+        {hasil:.2f} g/L
+
+        </div>
+        """,
         unsafe_allow_html=True
     )
 
     st.balloons()
 
-# =========================
+# ====================================
 # KESIMPULAN
-# =========================
-st.subheader("Kesimpulan")
+# ====================================
 
-st.write(
-    f"""
-Berdasarkan persamaan gas ideal:
+st.subheader("📌 Kesimpulan")
 
-PV = nRT
+st.write(f"""
 
-maka massa jenis gas oksigen pada tekanan 1520 Torr
- dan suhu 25°C adalah:
+Dengan:
+- tekanan = {P} atm
+- suhu = {T} K
+- massa molar = {M} g/mol
 
-## {hasil:.2f} g/L
-"""
-)
+maka massa jenis gas adalah:
 
-# =========================
-# TEST SEDERHANA
-# =========================
-assert round(hasil, 2) == 2.62, "Hasil perhitungan tidak sesuai"
+# {hasil:.2f} g/L
+
+""")
+
+# ====================================
+# TEST
+# ====================================
+
+assert hasil > 0, "Hasil tidak boleh negatif"
