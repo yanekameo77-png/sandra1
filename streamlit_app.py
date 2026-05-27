@@ -303,7 +303,7 @@ st.latex(
 # TOMBOL HASIL + kesimpulan
 # ====================================
 
-st.button("✨ Tampilkan Hasil"):
+if st.button("✨ Tampilkan Hasil"):
 st.markdown(
     f"""
     <div style="
@@ -356,9 +356,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-    # ====================================
-    # 
 
 # ====================================
 # TEST
