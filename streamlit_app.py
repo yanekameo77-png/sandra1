@@ -329,7 +329,7 @@ if st.button("✨ Tampilkan Hasil"):
     st.balloons()
 
     # Efek suara visual
-    st.typing()
+    st.star()
     
     st.markdown(
     f"""
