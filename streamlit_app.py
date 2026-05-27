@@ -317,7 +317,7 @@ if st.button("✨ Tampilkan Hasil"):
      # Efek sukses
     st.success("Perhitungan berhasil!")
      # Balon
-    st.flowers()
+    st.flower()
 
     # Efek suara visual
     st.typing()
