@@ -300,7 +300,7 @@ st.latex(
 )
 
 # ====================================
-# TOMBOL HASIL
+# TOMBOL HASIL + kesimpulan
 # ====================================
 
 if st.button("✨ Tampilkan Hasil"):
