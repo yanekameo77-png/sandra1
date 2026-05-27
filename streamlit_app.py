@@ -317,10 +317,10 @@ if st.button("✨ Tampilkan Hasil"):
      # Efek sukses
     st.success("Perhitungan berhasil!")
      # Balon
-    st.balloons()
+    st.flowers()
 
     # Efek suara visual
-    st.snow()
+    st.typing()
     
     st.markdown(
     f"""
