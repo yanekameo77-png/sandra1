@@ -316,15 +316,7 @@ if st.button("✨ Tampilkan Hasil"):
             progress.progress(i + 1)
      # Efek sukses
     st.success("Perhitungan berhasil✨!")
-    
-    from streamlit_extras.let_it_rain import rain
-    rain(
-        emoji="🎉",
-        font_size=54,
-        falling_speed=5,
-        animation_length="infinite"
-)
-
+    st.balloons()
     st.markdown(
     f"""
     <div style="
