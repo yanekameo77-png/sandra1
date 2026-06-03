@@ -97,7 +97,7 @@ html_code = f"""
 body {{
     margin:0;
     overflow:hidden;
-    background-color:transparent;
+    background-color:black;
 }}
 
 .kotak {{
